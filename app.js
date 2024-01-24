@@ -5,6 +5,7 @@ const multer = require("multer");
 const path = require("path");
 
 const postsRoutes = require("./routes/posts");
+const subscriptionsRoutes = require("./routes/web-browser-subscriptions");
 
 const app = express();
 const MONGODB_URI =
@@ -40,6 +41,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/posts", postsRoutes);
+app.use("/subscriptions", subscriptionsRoutes);
 
 app.use((error, req, res, next) => {
   console.log(error);
